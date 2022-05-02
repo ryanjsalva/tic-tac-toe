@@ -4,9 +4,11 @@ class Main {
   public static void main(String[] args) {
     char[][] board = new char[3][3];
 
+    System.out.println(board.length);    
+
     // create the board in memory as a 2D array
-    for (int r = 0; r < 3; r++) {
-      for (int c = 0; c < 3; c++) {
+    for (int r = 0; r < board.length; r++) {
+      for (int c = 0; c < board.length; c++) {
         board[r][c] = '-';
       }
     }
@@ -20,15 +22,15 @@ class Main {
   public static void drawBoard(char[][] board) {
 
     // draw the board as a 3x3 in the console
-    for (int r = 0; r < 3; r++) {
-      for (int c = 0; c < 3; c++) {
+    for (int r = 0; r < board.length; r++) {
+      for (int c = 0; c < board.length; c++) {
         System.out.print(board[r][c] + " ");
       }
       System.out.println(); // new line
     }
   }
 
-  public static void movePlayer(char[][]board) {
+  public static void movePlayer(char[][] board) {
     Scanner inp = new Scanner(System.in);
 
     int row;
@@ -40,6 +42,7 @@ class Main {
       drawBoard(board);
 
       // prompt the user for a row and column number
+      System.out.println();
       System.out.print("Enter a row number (0, 1, or 2): ");
       row = inp.nextInt();
 
@@ -69,11 +72,11 @@ class Main {
   public static void evaluateWin(char[][] board) {
 
     // evaluate rows
-    for (int r = 0; r < 3; r++) {
+    for (int r = 0; r < board.length; r++) {
       if (board[r][0] == '-') break;
-      for (int c = 1; c < 3; c++) {
+      for (int c = 1; c < board.length; c++) {
         if (board[r][c] != board[r][c-1]) break;
-        if (c >= 2) System.out.println("we have a winner!");
+        if (c >= board.length-1) System.out.println("🏆 We have a winner!");
         
         // TBD: exit once we've found a winner
       }
