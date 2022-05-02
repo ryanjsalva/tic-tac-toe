@@ -13,6 +13,7 @@ class Main {
 
     System.out.println("Let's play TTT!!");
 
+    // begin game play
     movePlayer(board);
   }
 
@@ -62,7 +63,6 @@ class Main {
       // switch players
       playerOne = !playerOne;
 
-
     }
   }
 
@@ -83,8 +83,6 @@ class Main {
     // TBD: evaluate diagonals
     
   }
-
-  
 }
 
 // C C C
